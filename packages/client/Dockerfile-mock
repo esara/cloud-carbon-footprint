@@ -1,0 +1,8 @@
+FROM node:hydrogen-alpine
+WORKDIR /usr/src/app
+COPY ./package.json ./package.json
+COPY ./stub-server ./stub-server
+
+RUN yarn add json-server --network-timeout 1000000
+
+CMD ["yarn", "start-stub-server"]
